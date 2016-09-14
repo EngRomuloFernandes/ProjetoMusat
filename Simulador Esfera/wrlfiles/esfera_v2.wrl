@@ -1,0 +1,201 @@
+#VRML V2.0 utf8
+# 3.1415 = 180 graus
+# 1.5707 = 90 graus
+# 0.7853 = 45 graus
+# 0.5235 = 30 graus
+WorldInfo {
+ title "VRML MATLAB Membrane"
+ info [
+  "Copyright 1998-2009 HUMUSOFT s.r.o. and The MathWorks, Inc.",
+  "$Revision: 1.1.6.2 $",
+  "$Date: 2009/05/07 18:29:42 $",
+  "$Author: batserve $"
+ ]
+}
+
+NavigationInfo {
+ headlight FALSE
+ type "EXAMINE"
+}
+Background {
+ skyColor [0.000000 0.000000 0.400000]
+}
+
+DEF Corpo Transform {
+    rotation 0 0 1 0
+    scale 1.000000 1.000000 1.000000
+    children [
+        Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1 0 0 1.5707
+            children [
+                Inline{
+                    url ["esfera.wrl"]
+                }                
+                DEF Tampa Transform {
+                    translation 0 100 0
+                    scale 1.000000 1.000000 1.000000
+                    children [
+                        Shape {
+                            appearance Appearance{
+                                material Material {
+                                            diffuseColor 1.0 0.6 0.0
+                                            transparency 0.6
+                                }
+                            }
+                            geometry Cylinder {
+                                radius 108.0
+                                height 30.0
+                                side TRUE
+                                top TRUE
+                                bottom TRUE
+                            }
+                        }
+                        DEF Camera Transform {
+                            translation 0 30 98
+                            scale 1 1 1
+                            children [
+                                Shape {
+                                    appearance Appearance{
+                                        material Material {
+                                                    diffuseColor 1.0 0.6 0.0
+                                                    transparency 0.6
+                                        }
+                                    }
+                                    geometry Box {
+                                        size 20.0 30.0 10.0
+                                    }
+                                }
+                                DEF Lente Transform {
+                                    translation 0 0 7
+                                    rotation 1 0 0 1.5707
+                                    scale 1 1 1
+                                    children [
+                                        Shape {
+                                            appearance Appearance{
+                                                material Material {
+                                                            diffuseColor 0.01 0.01 0.01
+                                                            transparency 0.0
+                                                }
+                                            }
+                                            geometry Cylinder {
+                                                radius 5.0
+                                                height 5.0
+                                                side TRUE
+                                                top TRUE
+                                                bottom TRUE
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+                DEF Roda_x Transform {
+                    translation 0 0 -80
+                    rotation 1 0 0 1.5707
+                    scale 1.000000 1.000000 1.000000
+                    children [
+                        Inline{
+                            url ["roda.wrl"]
+                        }
+                    ]
+                }
+                DEF Roda_y Transform {
+                    translation 80 0 0
+                    rotation 0 0 1 1.5707
+                    scale 1.000000 1.000000 1.000000
+                    children [
+                        Inline{
+                            url ["roda.wrl"]
+                        }
+                    ]
+                }
+                DEF Roda_z Transform {
+                    translation 0 -80 0
+                    rotation 0 0 0 0
+                    scale 1.000000 1.000000 1.000000
+                    children [
+                        Inline{
+                            url ["roda.wrl"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+DEF Mancal Transform {
+        translation 0 0 -200
+        rotation 1 0 0 1.5707
+        scale 1.000000 1.000000 1.000000
+        children [
+            Shape {
+                appearance Appearance{
+                    material Material {
+                                diffuseColor 1.0 0.6 0.0
+                                transparency 0.4
+                    }
+                }
+                geometry Cylinder {
+                    radius 150.0
+                    height 100.0
+                    side TRUE
+                    top TRUE
+                    bottom TRUE
+                }
+            }
+            Transform {
+                translation 0.000000 0.000000 0.000000
+                children
+                Billboard {
+                    axisOfRotation 0 0 0
+                    children
+                    Shape {
+                        geometry Text {
+                            string [ "Projeto IMA",
+                            "Equatorial Sistemas"]
+                            fontStyle FontStyle {
+                                size 20
+                                family "SANS"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+}
+DEF View1 Viewpoint {
+ position -413.9081 -545.3075  413.9081
+ fieldOfView 0.785398
+ orientation 0.922711 -0.24 -0.60 1.2
+ description "Original view"
+}
+DEF View2 Viewpoint {
+ position 0.000000 -800.000000 0.000000
+ orientation 1 0 0 1.5707
+ fieldOfView 0.785398
+ description "View along X"
+}
+DEF View2 Viewpoint {
+ position -800.000000 0.000000 0.000000
+ orientation -0.7071 0.7071 0.7071 -2.0944
+ fieldOfView 0.785398
+ description "View along Y"
+}
+DEF View4 Viewpoint {
+ position 0.000000 0.000000 800
+ fieldOfView 0.785398
+ description "View along Z"
+}
+DEF DirLight DirectionalLight {
+ direction 0.500000 1.000000 0.400000
+ ambientIntensity 1.0
+ color 1.000000 1.000000 1.000000
+}
+DEF PointLight PointLight {
+ location 40.000000 100.000000 20.000000
+ ambientIntensity 1.0
+ color 1.000000 1.000000 1.000000
+}
